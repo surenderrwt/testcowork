@@ -1,0 +1,38 @@
+
+# BEGIN Ethnic Wear Store Performance Rules — TES-2
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/xml
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary User-Agent
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg         "access plus 1 year"
+    ExpiresByType image/png          "access plus 1 year"
+    ExpiresByType image/gif          "access plus 1 year"
+    ExpiresByType image/webp         "access plus 1 year"
+    ExpiresByType image/svg+xml      "access plus 1 year"
+    ExpiresByType image/x-icon       "access plus 1 year"
+    ExpiresByType text/css           "access plus 1 month"
+    ExpiresByType text/javascript    "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/pdf    "access plus 1 month"
+    ExpiresByType text/html          "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|ico|svg)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+# END Ethnic Wear Store Performance Rules
+

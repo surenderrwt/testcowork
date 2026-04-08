@@ -1,0 +1,71 @@
+# WordPress core files (don't commit these – install fresh)
+/wp-admin/
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-activate.php
+/wp-blog-header.php
+/wp-comments-post.php
+/wp-cron.php
+/wp-links-opml.php
+/wp-load.php
+/wp-login.php
+/wp-mail.php
+/wp-settings.php
+/wp-signup.php
+/wp-trackback.php
+/xmlrpc.php
+
+# Sensitive config – keep a wp-config-sample.php instead
+wp-config.php
+
+# Uploads (large binaries – not suitable for git)
+/wp-content/uploads/
+
+# Cache & logs
+/wp-content/cache/
+/wp-content/advanced-cache.php
+/wp-content/wp-cache-config.php
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Backup & temp files
+*.sql
+*.tar.gz
+*.swp
+*~
+wp-content/backup-db/
+wp-content/backups/
+wp-content/wflogs/
+wp-content/upgrade/
+
+# WP Super Cache
+supercache/
+wp-content/blogs.dir/
+
+# Environment
+.env
+.env.local
+node_modules/
+vendor/
+
+# TES-2: Keep setup scripts and theme tracked
+!setup-woocommerce.php
+!setup-products.php
+!payment-setup.php
+!filters-setup.php
+!seo-setup.php
+!checkout-setup.php
+!optimization-setup.php
+!run-setup.sh
+!run-setup.command
+!STORE-ADMIN-GUIDE.md
+!wp-content/themes/testcowork-child/

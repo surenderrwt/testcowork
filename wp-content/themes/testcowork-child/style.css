@@ -1,0 +1,508 @@
+/*
+ Theme Name:   Testcowork Child
+ Theme URI:    http://localhost:8081/testcowork
+ Description:  Ethnic Wear Store child theme — built on Twenty Twenty-Five. TES-2
+ Author:       Ethnic Wear Store
+ Author URI:   http://localhost:8081/testcowork
+ Template:     twentytwentyfive
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:  testcowork-child
+*/
+
+/* ============================================================
+   ETHNIC WEAR STORE — CUSTOM STYLES
+   Palette:
+     Primary   : #8B0000  (Deep Maroon)
+     Secondary : #DAA520  (Golden)
+     Accent    : #FFF8DC  (Cream)
+     Background: #FFFAF0  (Floral White)
+   ============================================================ */
+
+/* ── CSS Variables ──────────────────────────────────────── */
+:root {
+    --color-primary:    #8B0000;
+    --color-secondary:  #DAA520;
+    --color-accent:     #FFF8DC;
+    --color-background: #FFFAF0;
+    --color-text:       #333333;
+    --color-border:     #e0cda0;
+    --font-heading:     'Playfair Display', Georgia, serif;
+    --font-body:        'Lato', 'Helvetica Neue', sans-serif;
+    --radius:           8px;
+    --shadow-card:      0 2px 12px rgba(139,0,0,.12);
+    --transition:       .3s ease;
+}
+
+/* ── Base ──────────────────────────────────────────────── */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6,
+.woocommerce-loop-product__title,
+.product_title {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+}
+
+a { color: var(--color-primary); }
+a:hover { color: var(--color-secondary); }
+
+/* ── Header / Nav ──────────────────────────────────────── */
+.site-header,
+.wp-block-template-part[data-slug="header"] {
+    background-color: var(--color-primary);
+    border-bottom: 3px solid var(--color-secondary);
+}
+.site-header a,
+.site-header .nav-link {
+    color: var(--color-accent) !important;
+}
+.site-header a:hover {
+    color: var(--color-secondary) !important;
+}
+
+/* ── Hero Banner ───────────────────────────────────────── */
+.ethnic-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #4a0000 50%, #1a0000 100%);
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+.ethnic-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23DAA520' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: .4;
+}
+.ethnic-hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #fff;
+    margin-bottom: 16px;
+    position: relative;
+}
+.ethnic-hero p {
+    font-size: 1.2rem;
+    color: var(--color-accent);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    position: relative;
+}
+.ethnic-hero .hero-cta {
+    display: inline-block;
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    font-weight: 700;
+    padding: 14px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: .5px;
+    transition: var(--transition);
+    position: relative;
+}
+.ethnic-hero .hero-cta:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,.3);
+}
+
+/* ── Offer Banner ──────────────────────────────────────── */
+.offer-banner {
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    text-align: center;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: .95rem;
+    letter-spacing: .5px;
+}
+
+/* ── Category Grid ─────────────────────────────────────── */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+@media (max-width: 900px) {
+    .category-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .category-grid { grid-template-columns: 1fr; }
+}
+.category-card {
+    background: #fff;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 24px 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: var(--shadow-card);
+}
+.category-card:hover {
+    border-color: var(--color-secondary);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(139,0,0,.18);
+}
+.category-card .cat-icon { font-size: 2.5rem; margin-bottom: 12px; }
+.category-card h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* ── Product Grid ──────────────────────────────────────── */
+.woocommerce ul.products,
+ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 24px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+}
+@media (max-width: 900px) {
+    .woocommerce ul.products,
+    ul.products {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+@media (max-width: 480px) {
+    .woocommerce ul.products,
+    ul.products {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ── Product Card ──────────────────────────────────────── */
+.woocommerce ul.products li.product,
+ul.products li.product {
+    background: #fff !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: var(--radius) !important;
+    overflow: hidden !important;
+    box-shadow: var(--shadow-card) !important;
+    transition: var(--transition) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.woocommerce ul.products li.product:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(139,0,0,.2) !important;
+    border-color: var(--color-secondary) !important;
+}
+
+/* Image hover zoom */
+.woocommerce ul.products li.product .woocommerce-loop-product__link img,
+ul.products li.product a img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: transform .4s ease !important;
+}
+.woocommerce ul.products li.product:hover img,
+ul.products li.product:hover a img {
+    transform: scale(1.06);
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__link {
+    display: block;
+    overflow: hidden;
+}
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+    padding: 12px 16px 4px;
+    font-size: 1rem !important;
+}
+.woocommerce ul.products li.product .price {
+    padding: 0 16px 8px;
+    color: var(--color-primary) !important;
+    font-weight: 700;
+}
+.woocommerce ul.products li.product .button {
+    margin: 0 16px 16px;
+    width: calc(100% - 32px);
+    display: block;
+    text-align: center;
+}
+
+/* ── Sale Badge ────────────────────────────────────────── */
+.woocommerce span.onsale {
+    background: var(--color-primary) !important;
+    color: #fff !important;
+    border-radius: 0 !important;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%) !important;
+    padding: 6px 10px 14px !important;
+    font-size: .75rem !important;
+    font-weight: 700 !important;
+    letter-spacing: .5px !important;
+    min-height: auto !important;
+    line-height: 1 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: auto !important;
+}
+
+/* ── Buttons ───────────────────────────────────────────── */
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit {
+    background: var(--color-primary) !important;
+    color: #fff !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    padding: 10px 24px !important;
+    transition: var(--transition) !important;
+    border: none !important;
+}
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover {
+    background: var(--color-secondary) !important;
+    color: var(--color-primary) !important;
+    transform: translateY(-1px);
+}
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce #place_order {
+    background: var(--color-secondary) !important;
+    color: var(--color-primary) !important;
+}
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce #place_order:hover {
+    background: var(--color-primary) !important;
+    color: #fff !important;
+}
+
+/* ── Color Swatches ────────────────────────────────────── */
+.woocommerce .variations td.value select,
+.ethnic-swatch-container {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.ethnic-color-swatch {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+}
+.ethnic-color-swatch:hover,
+.ethnic-color-swatch.selected {
+    border-color: var(--color-primary);
+    transform: scale(1.15);
+    box-shadow: 0 0 0 2px var(--color-secondary);
+}
+
+/* ── Size Selector ─────────────────────────────────────── */
+.ethnic-size-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0;
+}
+.ethnic-size-btn {
+    border: 2px solid var(--color-border);
+    background: #fff;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: .85rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+.ethnic-size-btn:hover,
+.ethnic-size-btn.selected {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: #fff;
+}
+
+/* ── Size Guide Button ─────────────────────────────────── */
+.size-guide-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    background: transparent;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: .85rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+    margin: 8px 0;
+}
+.size-guide-btn:hover {
+    background: var(--color-primary);
+    color: #fff;
+}
+.size-guide-btn::before { content: '📏 '; }
+
+/* ── Sticky Mobile Cart ────────────────────────────────── */
+@media (max-width: 768px) {
+    .sticky-add-to-cart {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: #fff;
+        border-top: 2px solid var(--color-secondary);
+        padding: 12px 16px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        box-shadow: 0 -4px 16px rgba(0,0,0,.12);
+    }
+    .sticky-add-to-cart .product-title {
+        flex: 1;
+        font-size: .85rem;
+        font-weight: 600;
+        color: var(--color-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .sticky-add-to-cart .sticky-price {
+        color: var(--color-primary);
+        font-weight: 700;
+        font-size: 1rem;
+    }
+    .sticky-add-to-cart .button {
+        flex-shrink: 0;
+        padding: 10px 20px !important;
+    }
+}
+
+/* ── Single Product Page ───────────────────────────────── */
+.woocommerce div.product .woocommerce-product-gallery__image {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+.woocommerce div.product .product_title {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+}
+.woocommerce div.product p.price {
+    color: var(--color-primary) !important;
+    font-size: 1.5rem !important;
+    font-weight: 700;
+}
+.woocommerce div.product del {
+    color: #888 !important;
+    font-size: 1.1rem;
+}
+.woocommerce div.product ins {
+    color: var(--color-primary) !important;
+    text-decoration: none !important;
+}
+
+/* ── Trust Badges ──────────────────────────────────────── */
+.trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 20px 0;
+    padding: 16px;
+    background: var(--color-accent);
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+}
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* ── Cart & Checkout ───────────────────────────────────── */
+.woocommerce-cart table.cart,
+.woocommerce-checkout form.checkout {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+}
+.woocommerce #payment {
+    background: var(--color-accent) !important;
+    border-radius: var(--radius) !important;
+}
+.woocommerce form .form-row label {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+.woocommerce form .form-row .input-text,
+.woocommerce form .form-row select {
+    border: 1.5px solid var(--color-border);
+    border-radius: 6px;
+    transition: var(--transition);
+}
+.woocommerce form .form-row .input-text:focus,
+.woocommerce form .form-row select:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139,0,0,.1);
+}
+
+/* ── Breadcrumbs ───────────────────────────────────────── */
+.woocommerce .woocommerce-breadcrumb {
+    color: #888;
+    font-size: .85rem;
+}
+.woocommerce .woocommerce-breadcrumb a {
+    color: var(--color-primary);
+}
+
+/* ── Sidebar Filters ───────────────────────────────────── */
+.widget_price_filter .ui-slider-range,
+.widget_price_filter .ui-slider-handle {
+    background: var(--color-primary) !important;
+}
+.widget_product_categories ul li a,
+.widget_layered_nav ul li a {
+    color: var(--color-text);
+    transition: var(--transition);
+}
+.widget_product_categories ul li a:hover,
+.widget_layered_nav ul li a:hover {
+    color: var(--color-primary);
+    padding-left: 4px;
+}
+
+/* ── Footer ────────────────────────────────────────────── */
+.site-footer {
+    background: var(--color-primary) !important;
+    color: var(--color-accent) !important;
+    border-top: 3px solid var(--color-secondary);
+}
+.site-footer a { color: var(--color-secondary) !important; }
+.site-footer a:hover { color: #fff !important; }
+
+/* ── Responsive helpers ────────────────────────────────── */
+@media (max-width: 768px) {
+    .category-grid { padding: 20px 16px; }
+    .ethnic-hero { padding: 50px 16px; }
+    body { padding-bottom: 70px; } /* space for sticky cart */
+}
